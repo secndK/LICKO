@@ -25,7 +25,7 @@ class CheckAuthenticated
         return $next($request);
     }
 
-        // Si authentifié, continuer la requête
+        
 
 
 }

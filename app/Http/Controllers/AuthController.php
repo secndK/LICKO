@@ -16,7 +16,6 @@ class AuthController extends Controller
             // L'utilisateur est déjà connecté, redirection vers le dashboard
             return redirect()->route('dashboard');
         }
-
         return view('auth.login');
     }
 
