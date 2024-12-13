@@ -5,10 +5,10 @@
 
 @section('content')
 
-
-<x-navbar/>
-
 <x-sidebar/>
+<x-anav/>
+
+
 
 
 
