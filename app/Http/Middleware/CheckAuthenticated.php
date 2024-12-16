@@ -3,29 +3,25 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CheckAuthenticated
 {
     /**
-     * Gère la requête entrante.
+     * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
+        // Vérifiez si l'utilisateur est authentifié
         if (!Auth::check()) {
-            // Redirige vers une page personnalisée si l'utilisateur n'est pas connecté
-            return response()->view('errors.custom', [], 403);
+            // Redirigez vers la page de connexion si non authentifié
+            return redirect()->route('login');
         }
 
         return $next($request);
     }
-
-        
-
-
 }

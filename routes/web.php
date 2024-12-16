@@ -14,7 +14,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route protégée par le middleware d'authentification
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('CheckAuthenticated');
+    ->middleware('auth');
 
 Route::get('/', function () {
     return view('auth.login');

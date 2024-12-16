@@ -60,11 +60,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'CheckAuthenticated' => CheckAuthenticated::class,
+        'CheckAuthenticated' => \App\Http\Middleware\CheckAuthenticated::class,
         'refresh.user' => \App\Http\Middleware\RefreshUserMiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings' => SubstituteBindings::class,
-        'cache.headers' => SetCacheHeaders::class,
+        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
